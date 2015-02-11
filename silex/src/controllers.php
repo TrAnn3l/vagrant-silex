@@ -14,3 +14,22 @@ $app->get('/welcome-twig/{name}', function ($name) use ($app) {
         array('name' => $name)
     );
 });
+
+
+$app->get('/static/home', function () use ($app) {
+    return $app['templating']->render(
+        'home.html.php'
+    );
+});
+
+$app->get('/static/music', function () use ($app) {
+    return $app['templating']->render(
+        'music.html.php'
+    );
+});
+
+$app->get('/static/user', function () use ($app) {
+    return $app['templating']->render(
+        'user.html.php'
+    );
+});

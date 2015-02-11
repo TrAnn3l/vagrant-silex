@@ -1,5 +1,6 @@
 
 .DS_Store
+.idea
 .vagrant
 silex/.DS_Store
 silex/.idea

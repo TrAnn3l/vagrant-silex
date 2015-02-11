@@ -5,10 +5,11 @@ echo 'Hallo ' . htmlspecialchars($_GET["name"]) . '!';
 
 <?php
 for ($i = 0; $i <= 4; $i++) {
-    if ($i % 2 == 0){
-        echo $i . " - " . "gerade";}
-    else{
-        echo $i . " - " . "ungerade";}
+    if ($i % 2 == 0) {
+        echo $i . " - " . "gerade";
+    } else {
+        echo $i . " - " . "ungerade";
+    }
 
     echo "<br/>";
 }
@@ -18,8 +19,8 @@ for ($i = 0; $i <= 4; $i++) {
 
 <?php
 $stop = 5;
-if($_GET["stop"] != "") {
-    $stop=$_GET["stop"];
+if ($_GET["stop"] != "") {
+    $stop = $_GET["stop"];
 }
 for ($i = 1; $i <= $stop; $i++) {
     echo $i;
