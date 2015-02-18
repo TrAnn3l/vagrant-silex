@@ -33,8 +33,8 @@
                 <li <?php active('User',$title)?>>
                     <a href="/static/user"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Page 2</a>
                 </li>
-                <li <?php active('Cog',$title)?>>
-                    <a href="#"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Page 3</a>
+                <li <?php active('Form',$title)?>>
+                    <a href="/static/form"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Page 3</a>
                 </li>
             </ul>
         </div>
@@ -42,6 +42,8 @@
 </nav>
 
 <?php $view['slots']->output('_content') ?>
+
+</body>
 
 <?php
 function active($Name,$new) {
