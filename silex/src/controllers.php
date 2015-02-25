@@ -42,14 +42,15 @@ $app->get('/static/form', function () use ($app) {
     );
 });
 
-$app->post('/form', function(Request $request) use($app) {
+$app->post('/static/form', function(Request $request) use($app) {
     if ($request->isMethod('post')) {
         $title = $request->get('title');
         $text = $request->get('text');
 
         if (($text=='') || ($title=='')) {
             return $app['templating']->render(
-                'form_error.html.php'
+                'form_error.html.php',
+                array('title' => $title,'text' => $text)
             );
         }
         else {
