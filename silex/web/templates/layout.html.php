@@ -33,7 +33,7 @@ $title=$view['slots']->get('title', 'Default title');?>
                     <a href="/home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a>
                 </li>
                 <li <?php active('User',$title)?>>
-                    <a href="/user"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Page 2</a>
+                    <a href="/login"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Page 2</a>
                 </li>
                 <li <?php active('Form',$title)?>>
                     <a href="/form"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Page 3</a>

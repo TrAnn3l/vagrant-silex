@@ -14,7 +14,7 @@ $view->extend('layout.html.php') ?>
                 <div class="panel-body">
                     <div class="form-group">
                         <label for="title">Titel</label>
-                        <form action="/static/form" method="post">
+                        <form action="/form" method="post">
                             <input type="text" name="title" class="form-control" id="title" placeholder="Titel"><br/>
                             <label for="text">Dein Text</label>
                             <textarea name="text" id="text" class="form-control" rows="5" cols="30" placeholder="Neuer Beitrag"></textarea><br/>

@@ -3,8 +3,8 @@ use Symfony\Component\HttpFoundation\Request;
 /* @var $app "Silex/Application"
  */
 
-$app->get('/', function () {
-    return render('index.html');
+$app->get('/', function ()  use ($app) {
+    return $app->redirect('/home');
 });
 
 $app->get('/home', function () use ($app) {
@@ -15,10 +15,38 @@ $app->get('/home', function () use ($app) {
     );
 });
 
-$app->get('/user', function () use ($app) {
+$app->get('/account', function () use ($app) {
     return $app['templating']->render(
-        'user.html.php'
+        'account.html.php'
     );
+});
+
+$app->get('/login', function () use ($app) {
+    $user = $app['session']->get('user')['username'];
+    if ($user=='')  {
+        return $app['templating']->render(
+            'login.html.php'
+        );
+    } else {
+        return $app['templating']->render(
+            'account.html.php', array('user' => $user)
+        );
+    }
+});
+
+$app->post('/login', function(Request $request) use($app) {
+    $user = $request->get('user');
+    if ($user=='')  {
+        return $app['templating']->render(
+            'form_error.html.php'
+        );
+    }
+    else {
+        $app['session']->set('user', array('username' => $user));
+        return $app['templating']->render(
+            'account.html.php', array('user' => $user)
+        );
+    }
 });
 
 $app->get('/form', function () use ($app) {
@@ -32,9 +60,11 @@ $app->post('/form', function(Request $request) use($app) {
     $text = $request->get('text');
 
     if (($text=='') || ($title=='')) {
+        $error = 'Bitte Alle Felder ausfüllen!';
+
         return $app['templating']->render(
             'form_error.html.php',
-            array('title' => $title,'text' => $text)
+            array('title' => $title,'text' => $text, 'error' => $error)
         );
     }
     else {
@@ -53,5 +83,4 @@ $app->post('/form', function(Request $request) use($app) {
             'form_success.html.php'
         );
     }
-
 });

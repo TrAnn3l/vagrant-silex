@@ -17,6 +17,7 @@ $app['debug'] = true;
 $app->register(new TranslationServiceProvider());
 $app->register(new LocaleServiceProvider());
 $app->register(new FormServiceProvider());
+$app->register(new Silex\Provider\SessionServiceProvider());
 
 $app->register(new TwigServiceProvider(), array(
     'twig.path' => __DIR__ . '/../web/templates',
