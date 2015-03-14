@@ -33,7 +33,7 @@ foreach ($postr as $post) {
                             <p>
                                 <button type='submit' name='nextid' class='btn btn-default btn-xs'
                                         value=" <?php echo $post['id'] ?> " role='button'>
-                                    Weiterlesen &#x25BC;</button>
+                                    Weiterlesen </button>
                             </p>
                         </form>
                     </div>
