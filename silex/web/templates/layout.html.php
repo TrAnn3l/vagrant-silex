@@ -32,8 +32,8 @@ $title=$view['slots']->get('title', 'Default title');?>
                 <li <?php active('Home',$title)?>>
                     <a href="/home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a>
                 </li>
-                <li <?php active('User',$title)?>>
-                    <a href="/login"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Page 2</a>
+                <li <?php active('User',$title); active('Account',$title)?>>
+                    <a href="/login"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Account </a>
                 </li>
                 <li <?php active('Form',$title)?>>
                     <a href="/form"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> Page 3</a>
@@ -50,7 +50,6 @@ $title=$view['slots']->get('title', 'Default title');?>
 
 <?php
 function active($Name,$new) {
-
     if($new == $Name)
       echo "class=\"active\"";
 }?>

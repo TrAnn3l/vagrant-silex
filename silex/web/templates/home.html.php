@@ -19,6 +19,7 @@ foreach ($postr as $post) {
                         <br>
                     </div>
                     <div class='panel-body'>
+                        <span>
                         <?php for ($counter = 0; $counter < 200; $counter++) {
                             if (isset($post['text'][$counter])) {
                                 echo $post['text'][$counter];
@@ -26,6 +27,7 @@ foreach ($postr as $post) {
                         }
                         if (isset($post['text'][200])) {
                             echo "..."; } ?>
+                            </span>
                         <form method='post' action='/readpost'>
                             <br>
                             <p>
@@ -39,5 +41,4 @@ foreach ($postr as $post) {
             </div>
         </div>
     </div>
-<?php }
-?>
+<?php } ?>

@@ -16,12 +16,6 @@ $app->get('/home', function () use ($app) {
 });
 
 $app->get('/account', function () use ($app) {
-    return $app['templating']->render(
-        'account.html.php'
-    );
-});
-
-$app->get('/login', function () use ($app) {
     $user = $app['session']->get('user')['username'];
     if ($user=='')  {
         return $app['templating']->render(
@@ -34,6 +28,30 @@ $app->get('/login', function () use ($app) {
     }
 });
 
+$app->post('/logout', function() use($app) {
+    $user = $app['session']->get('user')['username'];
+    if ($user=='')  {
+        return $app['templating']->render(
+            'form_error.html.php'
+        );
+    }
+    else {
+        $app['session']->clear();
+        return $app->redirect('/home');
+    }
+});
+
+$app->get('/login', function () use ($app) {
+    $user = $app['session']->get('user')['username'];
+    if ($user=='')  {
+        return $app['templating']->render(
+            'login.html.php'
+        );
+    } else {
+        return $app->redirect('/account');
+    }
+});
+
 $app->post('/login', function(Request $request) use($app) {
     $user = $request->get('user');
     if ($user=='')  {
@@ -43,9 +61,7 @@ $app->post('/login', function(Request $request) use($app) {
     }
     else {
         $app['session']->set('user', array('username' => $user));
-        return $app['templating']->render(
-            'account.html.php', array('user' => $user)
-        );
+        return $app->redirect('/account');
     }
 });
 
