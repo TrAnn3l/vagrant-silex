@@ -6,6 +6,19 @@ $view->extend('layout.html.php') ?>
 
 <?php $view['slots']->set('title', 'User') ?>
 
+<?php
+if($error == 'No Username')  {?>
+
+    <div class="container" >
+        <div class="row">
+            <div class="col-sm-10 col-sm-offset-1">
+                <div class="alert alert-danger" role="alert"><b>Warning!</b> You must provide an Username!!!</div>
+            </div>
+        </div>
+    </div>
+
+<?php } ?>
+
 <div class="container">
     <div class="row">
         <div class="col-sm-10 col-sm-offset-1">

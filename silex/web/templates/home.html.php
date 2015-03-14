@@ -15,7 +15,7 @@ foreach ($postr as $post) {
             <div class='col-sm-10 col-sm-offset-1'>
                 <div class='panel panel-default'>
                     <div class='panel-heading'>
-                        <?php echo "Beitragnr." . $post['id'] . ": " . $post['title'] . "<br>Erstellt am:" . date('d.m.Y', strtotime($post['created_at'])); ?>
+                        <?php echo "<h3>" . $post['title'] . "</h3><br>Erstellt am: " . date('d.m.Y', strtotime($post['created_at'])) . " von " . $post['author']; ?>
                         <br>
                     </div>
                     <div class='panel-body'>
